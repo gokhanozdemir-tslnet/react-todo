@@ -4,6 +4,11 @@
   width: 85%;
 
   .todo-inputtext {
-    width: 97%;
+    width: 85%;
+    border-radius: 5px;
+    border-color: rgba(128, 128, 128, 0.158);
+    font-size: 18px;
+
+    padding: 2px 2px 2px 18px;
   }
 }
