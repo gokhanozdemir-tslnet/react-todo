@@ -1,0 +1,12 @@
+.todo-item {
+    margin: 10px 20px 0px 2px;
+    text-align: left;
+
+    .textline-through{
+      text-decoration: line-through;
+    }
+    .todo-item-description
+    {
+        width: 80%;
+    }
+  }

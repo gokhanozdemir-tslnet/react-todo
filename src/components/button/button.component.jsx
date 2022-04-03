@@ -1,9 +1,11 @@
 import "./button.styles.scss";
 
-const Button = () => {
+const Button = (props) => {
+  const { customClass, customValue } = props;
+
   return (
-    <button className="addButton">
-      <span className="material-icons md-8">add</span>
+    <button className={`${customClass ? customClass : "addButton"}`}>
+      <span className="material-icons">{customValue}</span>
     </button>
   );
 };
