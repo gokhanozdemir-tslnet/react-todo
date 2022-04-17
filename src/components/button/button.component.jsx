@@ -13,3 +13,5 @@ const Button = ({customClass,customValue, ...otherProps}) => {
   );
 };
 export default Button;
+
+//buradaki ...otherProps butonun tanımlandığın yerde çağırılmalı
