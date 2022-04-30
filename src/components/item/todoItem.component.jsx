@@ -6,7 +6,6 @@ const TodoItem = ({ item }) => {
   const { description, isDone } = item;
   const [itemsisdone, setIsDone] = useState(isDone);
 
-  console.log(itemsisdone);
   return (
     <div>
       <div className="todo-item ">

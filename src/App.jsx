@@ -3,7 +3,7 @@ import Header from "./components/header/header.component";
 import InputText from "./components/input/inputtext.component";
 import Button from "./components/button/button.component";
 import TodoItem from "./components/item/todoItem.component";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import TodoItemContainer from "./components/item/todoItem.container";
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
         isDone: false,
       };
       var lst = [...list, item];
+
       setList(lst);
       setTodo("");
     }
@@ -26,14 +27,12 @@ function App() {
 
   const textChangeHandler = async (event) => {
     setTodo(event.target.value);
-    console.log(event.target.value);
   };
 
   return (
     <div className="App">
       <div className="todo-container">
         <Header />
-
         <InputText val={todo} onChange={textChangeHandler} />
         <Button type="button" customValue="add" onClick={addHandler} />
         <TodoItemContainer items={list} />
@@ -43,3 +42,6 @@ function App() {
 }
 
 export default App;
+
+//todo aplication training
+//performance
