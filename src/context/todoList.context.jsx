@@ -1,12 +1,12 @@
 import { createContext, useState } from "react";
 
 export const TodoListContext = createContext({
-  setTodoList: () => null,
+  setfTodoList: () => null,
   todoList: [],
 });
 
-export const TodoListContextProvider = ({ children }) => {
-  const { todoList, setTodoList } = useState([]);
+export const TodoListProvider = ({ children }) => {
+  const [todoList, setTodoList] = useState([]);
   const value = { todoList, setTodoList };
 
   return (

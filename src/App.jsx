@@ -5,22 +5,28 @@ import Button from "./components/button/button.component";
 import TodoItem from "./components/item/todoItem.component";
 import { useState, useContext } from "react";
 import TodoItemContainer from "./components/item/todoItem.container";
+import { TodoListContext } from "./context/todoList.context";
 
 function App() {
-  const [list, setList] = useState([]); //creating usestate for todolist
+  // const [list, setList] = useState([]); //creating usestate for todolist
   const [todo, setTodo] = useState(""); //creating usestate for todo item
+
+  const { todoList, setTodoList } = useContext(TodoListContext);
 
   const addHandler = async () => {
     if (todo != "") {
-      const i = list.len;
+      const i = todoList.len;
       const item = {
         id: 1,
         description: todo,
         isDone: false,
       };
-      var lst = [...list, item];
+      var lst = [...todoList, item];
 
-      setList(lst);
+      // setList(lst);
+      setTodoList(lst);
+      console.log(todoList);
+
       setTodo("");
     }
   };
@@ -35,7 +41,7 @@ function App() {
         <Header />
         <InputText val={todo} onChange={textChangeHandler} />
         <Button type="button" customValue="add" onClick={addHandler} />
-        <TodoItemContainer items={list} />
+        <TodoItemContainer items={todoList} />
       </div>
     </div>
   );
