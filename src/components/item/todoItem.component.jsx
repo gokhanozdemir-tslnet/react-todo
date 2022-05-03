@@ -1,10 +1,19 @@
 import "./todoItem.styles.scss";
 import Button from "../button/button.component";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { TodoListContext } from "../../context/todoList.context";
 
 const TodoItem = ({ item }) => {
-  const { description, isDone } = item;
+  const { description, isDone, id } = item;
   const [itemsisdone, setIsDone] = useState(isDone);
+
+  const { todoList, setTodoList } = useContext(TodoListContext);
+
+  const deleteHandler = (event) => {
+    var newList = todoList.filter((i) => i.id !== item.id);
+
+    setTodoList(newList);
+  };
 
   return (
     <div>
@@ -21,7 +30,11 @@ const TodoItem = ({ item }) => {
         >
           {description}
         </span>
-        <Button customClass="item-button" customValue="delete_forever" />
+        <Button
+          customClass="item-button"
+          onClick={deleteHandler}
+          customValue="delete_forever"
+        />
       </div>
     </div>
   );

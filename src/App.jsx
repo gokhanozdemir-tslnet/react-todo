@@ -8,27 +8,26 @@ import TodoItemContainer from "./components/item/todoItem.container";
 import { TodoListContext } from "./context/todoList.context";
 
 function App() {
-  // const [list, setList] = useState([]); //creating usestate for todolist
-  const [todo, setTodo] = useState(""); //creating usestate for todo item
+  const [todo, setTodo] = useState("");
 
   const { todoList, setTodoList } = useContext(TodoListContext);
 
   const addHandler = async () => {
-    if (todo != "") {
-      const i = todoList.len;
-      const item = {
-        id: 1,
-        description: todo,
-        isDone: false,
-      };
-      var lst = [...todoList, item];
-
-      // setList(lst);
-      setTodoList(lst);
-      console.log(todoList);
-
-      setTodo("");
+    if (todo === "") {
+      return;
     }
+
+    const newItemId = todoList.length + 1;
+
+    const item = {
+      id: newItemId,
+      description: todo,
+      isDone: false,
+    };
+    var newList = [...todoList, item];
+
+    setTodoList(newList);
+    setTodo("");
   };
 
   const textChangeHandler = async (event) => {
@@ -48,6 +47,3 @@ function App() {
 }
 
 export default App;
-
-//todo aplication training
-//performance
